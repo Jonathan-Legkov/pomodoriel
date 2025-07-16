@@ -40,9 +40,39 @@ The fixes include:
 
 ## Installation
 
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Run the application: `npm start`
+### Quick Setup (Recommended)
+```bash
+# Clone the repository
+git clone https://github.com/Jonathan-Legkov/pomodoriel.git
+cd pomodoriel
+
+# Run automated setup
+node setup.js
+```
+
+### Manual Setup
+```bash
+# Clone the repository
+git clone https://github.com/Jonathan-Legkov/pomodoriel.git
+cd pomodoriel
+
+# Install dependencies
+npm install
+
+# Start the application
+npm start
+```
+
+### Alternative Setup Commands
+```bash
+# Using npm script
+npm run setup
+
+# Just install dependencies
+npm install
+```
+
+**System Requirements**: See `SYSTEM-REQUIREMENTS.md` for detailed requirements.
 
 ## Usage
 

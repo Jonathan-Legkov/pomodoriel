@@ -6,6 +6,8 @@
   "scripts": {
     "start": "electron .",
     "dev": "electron . --dev",
+    "setup": "node setup.js",
+    "postinstall": "echo '✅ Dependencies installed! Run npm start to begin.'",
     "test": "jest",
     "build": "electron-builder",
     "build:win": "electron-builder --win",
@@ -48,14 +50,11 @@
     "win": {
       "target": {
         "target": "nsis",
-        "arch": ["x64", "ia32"]
+        "arch": ["x64"]
       }
     },
     "linux": {
-      "target": {
-        "target": "AppImage",
-        "arch": ["x64"]
-      }
+      "target": "AppImage"
     }
   }
 }
