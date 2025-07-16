@@ -26,9 +26,9 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "electron": "^36.5.0",
-    "electron-builder": "^25.1.8",
-    "jest": "^30.0.2"
+    "electron": "^37.2.2",
+    "electron-builder": "^26.0.12",
+    "jest": "^30.0.4"
   },
   "build": {
     "appId": "com.pomodoro.timer",

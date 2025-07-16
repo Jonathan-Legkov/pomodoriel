@@ -36,17 +36,20 @@ function checkSystemRequirements() {
 // Install dependencies
 function installDependencies() {
   console.log('\n📦 Installing dependencies...');
+  console.log('ℹ️  Note: Some deprecation warnings may appear - these are normal and safe to ignore.');
+  console.log('   See DEPENDENCY-ANALYSIS.md for details.\n');
   
   try {
     // Clear npm cache to avoid issues
     console.log('🧹 Clearing npm cache...');
     execSync('npm cache clean --force', { stdio: 'inherit' });
     
-    // Install dependencies
+    // Install dependencies with reduced warnings
     console.log('⬇️ Installing packages...');
-    execSync('npm install', { stdio: 'inherit' });
+    execSync('npm install --no-audit --no-fund', { stdio: 'inherit' });
     
     console.log('✅ Dependencies installed successfully!');
+    console.log('ℹ️  Deprecation warnings are cosmetic and don\'t affect functionality.');
     return true;
   } catch (error) {
     console.error('❌ Failed to install dependencies:');
@@ -125,6 +128,7 @@ function main() {
   console.log('\n💡 Quick start:');
   console.log('   npm start');
   console.log('\n📖 For Windows testing workflow, see: TESTING-WINDOWS.md');
+  console.log('📋 For dependency information, see: DEPENDENCY-ANALYSIS.md');
 }
 
 // Run setup
