@@ -1,0 +1,61 @@
+{
+  "name": "pomodoro",
+  "version": "1.0.0",
+  "description": "A simple Pomodoro timer app.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "test": "jest",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux",
+    "dist": "electron-builder --publish=never",
+    "pack": "electron-builder --dir",
+    "dev-server": "electron . --dev --enable-logging"
+  },
+  "keywords": [
+    "pomodoro",
+    "timer",
+    "productivity"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^36.5.0",
+    "electron-builder": "^25.1.8",
+    "jest": "^30.0.2"
+  },
+  "build": {
+    "appId": "com.pomodoro.timer",
+    "productName": "Pomodoro Timer",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": {
+        "target": "default",
+        "arch": ["x64", "arm64"]
+      }
+    },
+    "win": {
+      "target": {
+        "target": "nsis",
+        "arch": ["x64", "ia32"]
+      }
+    },
+    "linux": {
+      "target": {
+        "target": "AppImage",
+        "arch": ["x64"]
+      }
+    }
+  }
+}

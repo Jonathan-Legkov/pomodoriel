@@ -1,0 +1,388 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding-top: 1px; /* Prevents margin collapse */
+    transition: background-color 0.5s ease;
+}
+
+.container {
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 320px;
+    position: relative;
+    transition: background-color 0.5s ease, padding 0.3s ease;
+    margin: 0 auto 20px; /* Remove top margin, keep bottom and horizontal auto */
+}
+
+.work-mode .container {
+    background-color: #ffdde1; /* Soft Pink */
+}
+
+.break-mode .container {
+    background-color: #d4e4f3; /* Light Blue */
+}
+
+.break-mode .settings-group label {
+    color: #6a8aaa;
+}
+
+.break-mode .settings-group input {
+    border: 1px solid #6a8aaa;
+    background-color: #e8f0f7;
+    color: #4a6c8a;
+}
+
+.break-mode .controls button {
+    background-color: #6a8aaa; /* Darker Blue */
+    color: #fff; /* Ensure text is white */
+}
+
+.break-mode .controls button:hover {
+    background-color: #e8f0f7;
+}
+
+.break-mode .settings-controls button {
+    background-color: #6a8aaa; /* Darker Blue */
+}
+
+.break-mode .settings-controls button:hover {
+    background-color: #e8f0f7;
+}
+
+.timer-display {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.controls button {
+    background-color: #e68d99; /* Darker Pink */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-grow: 1;
+    padding: 12px 10px;
+}
+
+.controls button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.settings {
+    margin-top: 30px;
+    color: #fff;
+}
+
+.settings-group {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.settings-group label {
+    margin-right: 10px;
+    color: #e68d99; /* Darker Pink for better contrast */
+    font-weight: bold;
+}
+
+.settings-group input {
+    width: 60px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #e68d99; /* Darker pink border */
+    background-color: #fde6e9; /* Lighter pink background */
+    color: #c56270; /* Dark pink text */
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Remove ugly arrows from number input */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.settings-controls {
+    margin-bottom: 20px;
+}
+
+.settings-controls button {
+    background-color: #e68d99; /* Darker Pink */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.settings-controls button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.presets {
+    margin-top: 10px;
+}
+
+.preset-btn {
+    background-color: rgba(0,0,0,0.1);
+    border: none;
+    color: #fff;
+    padding: 8px 18px;
+    margin: 0 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.preset-btn:hover {
+    background-color: rgba(0,0,0,0.2);
+}
+
+.break-mode .preset-btn {
+    background-color: rgba(255,255,255,0.25);
+    color: #4a6c8a;
+}
+
+.break-mode .preset-btn:hover {
+    background-color: rgba(255,255,255,0.4);
+}
+
+.dev-controls {
+    margin-top: 15px;
+    opacity: 0.7;
+}
+
+.dev-controls button {
+    background: rgba(0,0,0,0.05);
+    border: 1px dashed rgba(255,255,255,0.5);
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.dev-controls button:hover {
+    background: rgba(0,0,0,0.1);
+    border-style: solid;
+}
+
+.container.break-mode .dev-controls button,
+.break-mode .dev-controls button {
+    border-color: rgba(0,0,0,0.2);
+    color: #4a6c8a;
+    background: rgba(255,255,255,0.2);
+}
+
+.window-controls {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.window-controls label {
+    color: #fff;
+    cursor: pointer;
+}
+
+.break-mode .window-controls label {
+    color: #4a6c8a;
+}
+
+#toggle-size-btn {
+    position: fixed;
+    /* Adjust positioning to avoid Windows title bar and controls */
+    top: 15px; /* Moved down slightly to avoid title bar on Windows */
+    right: 15px; /* Moved left slightly to avoid window controls on Windows */
+    background: rgba(255, 255, 255, 0.1); /* Add subtle background for better visibility */
+    border: none;
+    font-size: 1.5rem;
+    color: rgba(0, 0, 0, 0.4); /* Dark, semi-transparent color for visibility */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 999;
+    padding: 8px; /* Increased padding for better click area */
+    line-height: 1;
+    border-radius: 4px; /* Add slight border radius for better appearance */
+    backdrop-filter: blur(5px); /* Add blur effect for better distinction */
+}
+
+#toggle-size-btn:hover {
+    color: rgba(0, 0, 0, 0.6);
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.2); /* Slightly more visible on hover */
+}
+
+.break-mode #toggle-size-btn {
+    /* No override needed, the dark color works on both backgrounds */
+    color: rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.15); /* Slightly different background for break mode */
+}
+
+/* Add Windows-specific styles if needed */
+@media screen and (-webkit-min-device-pixel-ratio: 1) {
+    /* This targets Windows (non-retina) displays */
+    #toggle-size-btn {
+        top: 20px; /* Extra spacing on Windows */
+        right: 20px;
+    }
+}
+
+/* Windows-specific platform styles */
+.windows-platform #toggle-size-btn {
+    /* Better positioning for Windows title bar */
+    top: 30px !important;
+    right: 30px !important;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 1.4rem; /* Slightly smaller on Windows */
+    padding: 10px; /* Larger click area */
+}
+
+.windows-platform #toggle-size-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.windows-platform.break-mode #toggle-size-btn {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.windows-platform.break-mode #toggle-size-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Windows-specific compact view adjustments */
+.windows-platform .compact-view {
+    padding: 10px 12px; /* Slightly more padding on Windows */
+}
+
+.windows-platform .compact-view .timer-display {
+    font-size: 2.4rem; /* Slightly smaller to avoid Windows DPI issues */
+}
+
+/* Ensure the toggle button is always visible on Windows */
+.windows-platform #toggle-size-btn {
+    min-width: 32px;
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- Compact View --- */
+.compact-view .settings,
+.compact-view .presets,
+.compact-view .settings-controls,
+.compact-view .dev-controls,
+.compact-view .window-controls,
+.compact-view .controls {
+    display: none;
+}
+
+.compact-view {
+    padding: 8px 8px 10px; /* Tight padding: more room for content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+    box-shadow: none;
+    box-sizing: border-box;
+}
+
+.compact-view .timer-display {
+    font-size: 2.6rem; /* Shrink timer to fit */
+    margin: 0 0 4px 0; /* Small gap below timer */
+    text-align: center;
+}
+
+.compact-controls {
+    display: none;
+}
+
+.compact-view .compact-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px; /* Smaller gap between buttons */
+    margin-top: 2px; /* Minimal space above controls */
+}
+
+.compact-controls button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem; /* Slightly smaller icons */
+    cursor: pointer;
+    opacity: 0.9;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    min-width: 24px;
+    min-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.compact-controls button:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.break-mode .compact-controls button {
+    color: #4a6c8a;
+}
+
+@media (max-width: 300px) {
+    .container {
+        padding: 20px;
+        height: 100vh;
+        width: 100vw;
+        border-radius: 0;
+        box-shadow: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .timer-display {
+        font-size: 4.5rem;
+    }
+
+    .settings, .presets, .settings-controls, .dev-controls, .window-controls {
+        display: none;
+    }
+}
